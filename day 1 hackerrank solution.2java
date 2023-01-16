@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc = new Scanner(System.in);
+        double silverPricePerKg = sc.nextDouble();
+        double goldPricePer10gm = sc.nextDouble();
+        String metal = sc.next();
+        double weight = sc.nextDouble();
+        double price;
+
+        if (weight < 0.01 || weight > 1000) {
+            System.out.println("Invalid Input");
+        } else {
+            if (metal.equalsIgnoreCase("silver")) {
+                price = (weight / 1000) * silverPricePerKg;
+                int p=(int)price;
+                System.out.println(p);
+            } else if (metal.equalsIgnoreCase("gold")) {
+                price = (weight / 10) * goldPricePer10gm;
+                System.out.println((int)price);
+            } else {
+                System.out.println("Invalid Input");
+            }
+        }
+    }
+}
